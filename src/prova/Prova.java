@@ -1,10 +1,6 @@
 package prova;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Prova {
 
@@ -80,14 +76,57 @@ public class Prova {
         return sb;
     }
 
+//    public int solution(int A, int B) {
+//        Integer aDiv;
+//        Integer bDiv;
+//        if (A%2 != 0){
+//            if (A%3 != 0) {
+//
+//            }
+//        } else {
+//
+//        }
+//        System.out.println(A+B % 4 != 0);
+//        return 1;
+//    };
+
+//    public int solution(int[] A, int[] B) {
+//        List<Integer> result = new ArrayList<>();
+//
+//        int temp1 = 0;
+//        int temp2 = 0;
+//        for (int i = 0; i < A.length; i++) {
+//            temp1 = temp1 + A[i];
+//            for (int k = i; k < A.length; k++) {
+//                temp2 = temp2 + A[k];
+//
+//            }
+//        }
+//    }
+
+    public Integer solution(String S) {
+        List<String> arr = Arrays.asList(S.split(""));
+        List<String> result = new ArrayList<>();
+        String temp = "";
+        for (int i = 0; i < arr.size(); i++) {
+            if (temp.contains(arr.get(i))) {
+                result.add(temp);
+                temp = "";
+            }
+            temp = temp + arr.get(i);
+            if (i == arr.size()-1) {
+                result.add(temp);
+            }
+        }
+        return result.size();
+    };
 
     public static void main(String[] args) {
         String text = "";
         Prova util = new Prova();
-        Scanner myObj = new Scanner(System.in);
-        text = myObj.nextLine();
-
-        System.out.println(util.main(text));
-
+        System.out.println(util.solution("world"));
+        System.out.println(util.solution("dddd"));
+        System.out.println(util.solution("cycle"));
+        System.out.println(util.solution("abba"));
     }
 }

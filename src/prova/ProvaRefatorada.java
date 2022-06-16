@@ -26,17 +26,16 @@ public class ProvaRefatorada {
 
     public boolean consonantFunc (List<String> letters) {
         List<String> consoant = new ArrayList<>(Arrays.asList("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"));
-        boolean result = false;
         List<String> tempWord = new ArrayList<>();
         for (String l: letters) {
             tempWord.add(l.toLowerCase());
         }
         for (String c: consoant) {
             if (tempWord.contains(c)) {
-                result = true;
+                return true;
             }
         }
-        return result;
+        return false;
     }
 
     public ArrayList<String> switchLettersInTheWord (ArrayList<String> wordSplited) {
